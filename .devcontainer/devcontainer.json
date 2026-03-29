@@ -1,0 +1,21 @@
+{
+  "name": "CMP Full Theos Build (No Freezes)",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers-contrib/features/bash:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/clang:1": {}
+  },
+  "postCreateCommand": "apt-get update &amp;&amp; apt-get install -y git make clang lld zip unzip fakeroot rpm dpkg-dev libssl-dev libbz2-dev libdb-dev libreadline-dev libsqlite3-dev libncurses5-dev libncursesw5-dev libffi-dev liblzma-dev sudo &amp;&amp; export THEOS=$(pwd)/theos &amp;&amp; echo 'export THEOS=$(pwd)/theos' >> ~/.bashrc &amp;&amp; echo 'alias make=\"make -j8\"' >> ~/.bashrc &amp;&amp; $THEOS/bin/bin/install-sdk || true &amp;&amp; cd $(pwd) &amp;&amp; make clean &amp;&amp; make package || echo 'Build ready on rebuild'",
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cpptools", "theos.theos"],
+      "settings": {
+        "terminal.integrated.inheritEnv": true,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.gpuAcceleration": "off"
+      }
+    }
+  }
+}

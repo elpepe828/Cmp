@@ -1,0 +1,10 @@
+Name: com.yourname.cmpmod
+Package: com.yourname.cmpmod
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Cmp Mod Menu dylib for GTA CMP 2.6.7
+Maintainer: BlackboxAI
+Author: BlackboxAI
+Section: Tweaks
+Depends: mobilesubstrate
+
